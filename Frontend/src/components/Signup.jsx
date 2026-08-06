@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import axios from "axios";
+import axiosInstance from "../config/axiosInstance";
 import { useAuth } from "../context/AuthProvider";
 import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
@@ -20,7 +20,7 @@ function Signup() {
       password: data.password,
       confirmPassword: data.confirmPassword,
     };
-    await axios
+    await axiosInstance
       .post("/api/user/signup", userInfo)
       .then((res) => {
         console.log(res.data);

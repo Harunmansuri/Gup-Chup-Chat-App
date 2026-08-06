@@ -1,7 +1,7 @@
 import React from "react";
 import { LuLogOut } from "react-icons/lu";
 import { useState } from "react";
-import axios from "axios";
+import axiosInstance from "../../config/axiosInstance";
 import Cookies from "js-cookie";
 import toast from "react-hot-toast";
 
@@ -11,7 +11,7 @@ function Logout() {
   const handleLogout =  async () => {
     setLoading(false);
     try {
-     const response =  await axios.post("/api/user/logout");
+     const response =  await axiosInstance.post("/api/user/logout");
      localStorage.removeItem("messengerUser");
      Cookies.remove("jwt");
      setLoading(false);
