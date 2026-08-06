@@ -5,10 +5,21 @@ import express from "express";
 const app = express();
 
 const server = http.createServer(app);
+
+// Allow both your deployed frontend and local dev by default.
+// You can override/add more via CLIENT_URL env (comma separated) on Render.
+const allowedOrigins = [
+  "https://gup-chup-chat-app.vercel.app",
+  "http://localhost:5173",
+  "http://localhost:4001",
+  ...(process.env.CLIENT_URL ? process.env.CLIENT_URL.split(",") : []),
+];
+
 const io = new Server(server, {
   cors: {
-    origin: "https://chatapp-dh57.onrender.com",
+    origin: allowedOrigins,
     methods: ["GET", "POST"],
+    credentials: true,
   },
 });
 

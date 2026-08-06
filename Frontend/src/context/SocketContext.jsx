@@ -17,7 +17,7 @@ export const SocketProvider = ({ children }) => {
     if (authUser) {
       const socket = io(import.meta.env.VITE_API_URL, {
         query: {
-          userId: authUser.user.id,
+          userId: authUser.user._id,
         },
       });
       setSocket(socket);
