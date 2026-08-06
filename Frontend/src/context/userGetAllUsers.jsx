@@ -4,7 +4,7 @@ import axiosInstance from "../config/axiosInstance";
 
 function userGetAllUsers() {
   const [allUsers, setAllUsers] = useState([]);
-  const [loading, setLoading] = useState([]); // 
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const getAllUsers = async () => {
@@ -21,7 +21,7 @@ function userGetAllUsers() {
         setLoading(false);
       } catch (error) {
         console.error("Error fetching users:", error);
-      } 
+      }
     };
 
     getAllUsers();
