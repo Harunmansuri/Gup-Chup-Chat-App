@@ -12,7 +12,7 @@ dotenv.config();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 ///enable cors for all routes
-app.use(cors({ origin: "https://your-frontend-domain.vercel.app", credentials: true }));
+app.use(cors({ origin: "https://gup-chup-chat-app.vercel.app/", credentials: true }));
 app.use(cookieParser()); // enable cookie parser for all routes
 const PORT = process.env.PORT;
 const URI = process.env.MONGODB_URI;
